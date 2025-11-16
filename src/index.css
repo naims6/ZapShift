@@ -1,0 +1,34 @@
+/* goggle font import "Urbanist" */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+/* custom theme import */
+@import "./themes.css";
+/* tailwind import  */
+@import "tailwindcss";
+/* daisy ui import */
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: blue;
+  --color-secondary: teal;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: blue;
+  --color-secondary: teal;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: "Urbanist", sans-serif;
+  min-height: 100vh;
+}
+
+.container2 {
+  @apply w-full max-w-[1450px] mx-auto px-4;
+}

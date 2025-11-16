@@ -1,0 +1,87 @@
+@theme {
+  /* Color Tokens */
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+
+  /* Backgrounds */
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-bg-hover: var(--color-bg-hover);
+  --color-overlay: var(--color-overlay);
+
+  /* Text */
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+
+  /* Border */
+  --color-border: var(--color-border);
+}
+
+/* 🌞 Light Theme (default) */
+:root {
+  --color-primary: #acc857;
+  --color-secondary: #6366f1;
+  --color-accent: #f59e0b;
+
+  /* Backgrounds */
+  --color-bg: #eaeced;
+  --color-surface: #ffffff;
+  --color-bg-muted: #f3f4f6;
+  --color-bg-hover: #e5e7eb;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Text */
+  --color-text-primary: #03373d;
+  --color-text-secondary: #606060;
+  --color-text-muted: #303030;
+
+  /* Border */
+  --color-border: #dadada;
+}
+
+/* 🌚 Dark Theme */
+[data-theme="dark"] {
+  --color-primary: #2563eb;
+  --color-secondary: #4338ca;
+  --color-accent: #fbbf24;
+
+  /* Backgrounds */
+  --color-bg: #111827;
+  --color-surface: #263344;
+  --color-bg-muted: #374151;
+  --color-bg-hover: #4b5563;
+  --color-overlay: rgba(255, 255, 255, 0.1);
+
+  /* Text */
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #9ca3af;
+
+  /* Border */
+  --color-border: #535353a8;
+}
+
+/* 🌳 Forest Theme */
+[data-theme="forest"] {
+  --color-primary: #16a34a;
+  --color-secondary: #15803d;
+  --color-accent: #84cc16;
+
+  /* Backgrounds */
+  --color-bg: #f0fdf4;
+  --color-surface: #dcfce7;
+  --color-bg-muted: #bbf7d0;
+  --color-bg-hover: #86efac;
+  --color-overlay: rgba(0, 50, 0, 0.3);
+
+  /* Text */
+  --color-text-primary: #14532d;
+  --color-text-secondary: #166534;
+  --color-text-muted: #4ade80;
+
+  /* Border */
+  --color-border: #86efac;
+}
