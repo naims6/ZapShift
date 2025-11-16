@@ -26,7 +26,6 @@ body {
   background: var(--color-bg);
   color: var(--color-text-primary);
   font-family: "Urbanist", sans-serif;
-  min-height: 100vh;
 }
 
 .container2 {
