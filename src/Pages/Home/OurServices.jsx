@@ -49,7 +49,7 @@ const serviceCardDetails = [
 const OurServices = () => {
   return (
     <div className="mx-4 mt-25">
-      <div className="container2 bg-text-primary py-24 px-20 rounded-2xl">
+      <div className="container2 bg-text-primary py-16 px-8 lg:py-24 lg:px-20 rounded-2xl">
         {/* our service title */}
         <div className="text-center">
           <h1 className="text-2xl lg:text-3xl text-white font-bold">
