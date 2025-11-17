@@ -29,5 +29,5 @@ body {
 }
 
 .container2 {
-  @apply w-full max-w-[1450px] mx-auto px-4;
+  @apply w-full max-w-[1450px] mx-auto;
 }

@@ -37,9 +37,9 @@ const Navbar = () => {
   );
 
   return (
-    <div className="sticky left-0 top-0 mt-7 w-full">
-      <div className="relative mx-4 z-50">
-        <div className="flex min-h-24 items-center justify-between w-full bg-surface shadow-sm rounded-2xl container2">
+    <div className="sticky left-0 top-0 mt-7 w-full z-50">
+      <div className="relative mx-4">
+        <div className="flex min-h-24 items-center justify-between w-full bg-surface shadow-sm rounded-2xl container2 px-6">
           {/* mobile menu */}
           <div className="lg:hidden">
             <Hamburger

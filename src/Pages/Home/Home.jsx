@@ -1,9 +1,13 @@
 import React from "react";
+import Banner from "./Banner";
+import "./swiper.css";
+import Brands from "./Brands";
 
 const Home = () => {
   return (
-    <div className="mx-4">
-      <div className="container2 bg-surface mt-7 rounded-2xl">home banner</div>
+    <div>
+      <Banner />
+      <Brands />
     </div>
   );
 };
