@@ -3,8 +3,8 @@ import { TbTruckDelivery } from "react-icons/tb";
 
 const HowItWorks = () => {
   return (
-    <div className="mx-4 mt-16">
-      <div className="container2">
+    <div className="mx-4 mt-22">
+      <div className="max-w-7xl w-full mx-auto">
         <h2 className="text-2xl lg:text-3xl font-bold mb-10">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
           {/* first */}
