@@ -1,17 +1,54 @@
-.swiper {
+.bannerTestimonial .swiper {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.swiper-slide {
+.bannerTestimonial .swiper-slide {
   background-position: center;
   background-size: cover;
   width: 300px;
   height: 300px;
 }
 
-.swiper-slide img {
+.bannerTestimonial .swiper-slide img {
   display: block;
-  width: 100%;
 }
+
+.swiper,
+.swiper-wrapper {
+  overflow: visible !important;
+}
+/* Base slide */
+.testimonial-slide {
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+/* Active (centered) slide bigger + lifted up */
+.swiper-slide-active .slide-content {
+  margin-top: -30px;
+  z-index: 10;
+}
+
+/* Non-active slides fade darker */
+.swiper-slide:not(.swiper-slide-active) .slide-content {
+  /* filter: brightness(0.4); darken */
+  opacity: 0.6;
+}
+/* Smooth transition */
+.slide-content {
+  transition: all 0.35s ease;
+}
+/* .swiper-slide:not(.swiper-slide-active) .slide-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.7)
+  );
+  border-radius: inherit;
+  pointer-events: none;
+} */

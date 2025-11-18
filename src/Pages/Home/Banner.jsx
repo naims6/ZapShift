@@ -17,7 +17,7 @@ const bannerImages = [banner1, banner2, banner3];
 const Banner = () => {
   return (
     <div className="mx-4">
-      <div className="bg-surfac bg-amber-200  h-[600px] mt-9 rounded-2xl overflow-hidden">
+      <div className="bg-surface container2 h-[600px] mt-9 rounded-2xl overflow-hidden">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -30,13 +30,13 @@ const Banner = () => {
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper h-[600px]"
+          className="mySwiper swiperBanner"
         >
           {bannerImages.map((img) => (
-            <SwiperSlide className="h-[600px] ">
-              {/* <div className="h-full w-full"> */}
-              <img className="h-[600px]" src={img} alt="banner image" />
-              {/* </div> */}
+            <SwiperSlide className=" bg-green-800 h-[600px] z-50">
+              <div className="h-[600px] w-full">
+                <img className="h-[600px]" src={img} alt="banner image" />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
