@@ -60,11 +60,17 @@ const Navbar = () => {
           </div>
           {/* sign in signout in big screen */}
           <div className="hidden lg:flex gap-2.5">
-            <Link className="px-8 py-4 rounded-lg cursor-pointer font-extrabold text-lg text-text-secondary border border-border">
+            <Link
+              to="/auth/login"
+              className="px-8 py-4 rounded-lg cursor-pointer font-extrabold text-lg text-text-secondary border border-border"
+            >
               Sign In
             </Link>
-            <Link className="px-8 py-4 rounded-lg cursor-pointer font-extrabold text-lg  bg-primary text-text-muted">
-              Be a Rider
+            <Link
+              to="/auth/register"
+              className="px-8 py-4 rounded-lg cursor-pointer font-extrabold text-lg  bg-primary text-text-muted"
+            >
+              Sign Up
             </Link>
           </div>
         </div>
