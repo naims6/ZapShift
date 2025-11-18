@@ -22,7 +22,7 @@ const Navbar = () => {
         <NavLink>Services</NavLink>
       </li>
       <li className="text-text-secondary font-medium text-base">
-        <NavLink>Coverrage</NavLink>
+        <NavLink to="/coverage">Coverage</NavLink>
       </li>
       <li className="text-text-secondary font-medium text-base">
         <NavLink>About Us</NavLink>
