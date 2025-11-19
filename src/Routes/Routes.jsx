@@ -5,6 +5,7 @@ import Coverage from "../Pages/Coverage/Coverage";
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,9 @@ export const router = createBrowserRouter([
       {
         path: "/coverage",
         Component: Coverage,
+        loader: () =>
+          axios("/public/data/warehouses.json").then((data) => data.data),
+        hydrateFallbackElement: <h1>Loading...</h1>,
       },
     ],
   },
