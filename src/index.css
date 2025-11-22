@@ -31,3 +31,6 @@ body {
 .container2 {
   @apply w-full max-w-[1450px] mx-auto;
 }
+a .active {
+  @apply font-bold text-green-500;
+}
