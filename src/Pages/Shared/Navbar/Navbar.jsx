@@ -44,7 +44,7 @@ const Navbar = () => {
         <NavLink>Pricing </NavLink>
       </li>
       <li className="text-text-secondary font-medium text-base">
-        <NavLink>Send a Parcel </NavLink>
+        <NavLink to="/send-parcel">Send a Parcel </NavLink>
       </li>
       <li className="text-text-secondary font-medium text-base">
         <NavLink>Be a Rider</NavLink>

@@ -6,8 +6,11 @@ import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
 import axios from "axios";
+import PrivateRoute from "./PrivateRoute";
+import SendAParcel from "../Pages/SendAParcel/SendAParcel";
 
 export const router = createBrowserRouter([
+  // Root Layout
   {
     path: "/",
     Component: RootLayout,
@@ -19,12 +22,22 @@ export const router = createBrowserRouter([
       {
         path: "/coverage",
         Component: Coverage,
-        loader: () =>
-          axios("/public/data/warehouses.json").then((data) => data.data),
+        loader: () => axios("/data/warehouses.json").then((data) => data.data),
+        hydrateFallbackElement: <h1>Loading...</h1>,
+      },
+      {
+        path: "/send-parcel",
+        element: (
+          <PrivateRoute>
+            <SendAParcel></SendAParcel>
+          </PrivateRoute>
+        ),
+        loader: () => axios("/data/warehouses.json").then((data) => data.data),
         hydrateFallbackElement: <h1>Loading...</h1>,
       },
     ],
   },
+  // Auth Layout
   {
     path: "/auth",
     Component: AuthLayout,
