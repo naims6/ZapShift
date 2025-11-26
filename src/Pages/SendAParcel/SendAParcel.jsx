@@ -63,6 +63,8 @@ export default function SendAParcel() {
       }
     }
 
+    data.cost = cost;
+
     Swal.fire({
       title: "Confirm your payment?",
       text: `You will be charge

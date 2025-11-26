@@ -8,6 +8,8 @@ import Register from "../Pages/Auth/Register/Register";
 import axios from "axios";
 import PrivateRoute from "./PrivateRoute";
 import SendAParcel from "../Pages/SendAParcel/SendAParcel";
+import DashBoardLayout from "../Layouts/DashBoardLayout";
+import MyParcels from "../Pages/MyParcels/MyParcels";
 
 export const router = createBrowserRouter([
   // Root Layout
@@ -49,6 +51,21 @@ export const router = createBrowserRouter([
       {
         path: "/auth/register",
         Component: Register,
+      },
+    ],
+  },
+  // Dashboard Layout
+  {
+    path: "/dashboard",
+    Component: DashBoardLayout,
+    children: [
+      {
+        path: "/dashboard/my-parcels",
+        element: (
+          <PrivateRoute>
+            <MyParcels></MyParcels>
+          </PrivateRoute>
+        ),
       },
     ],
   },

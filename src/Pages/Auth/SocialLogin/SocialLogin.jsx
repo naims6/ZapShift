@@ -8,8 +8,12 @@ const SocialLogin = () => {
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then((data) => {
-        console.log(data);
+      .then((credential) => {
+        const email = credential.user.email;
+        if (!email) {
+          credential.user.email = credential.user.providerData[0].email;
+          console.log(credential.user);
+        }
         navigate("/");
       })
       .catch((e) => {

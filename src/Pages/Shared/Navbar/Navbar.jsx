@@ -41,7 +41,7 @@ const Navbar = () => {
         <NavLink>About Us</NavLink>
       </li>
       <li className="text-text-secondary font-medium text-base">
-        <NavLink>Pricing </NavLink>
+        <NavLink to="/dashboard/my-parcels">My Parcels </NavLink>
       </li>
       <li className="text-text-secondary font-medium text-base">
         <NavLink to="/send-parcel">Send a Parcel </NavLink>

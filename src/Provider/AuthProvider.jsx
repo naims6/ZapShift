@@ -14,7 +14,9 @@ import { auth } from "../firebase/firebase.init";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
   const googleProvider = new GoogleAuthProvider();
+  googleProvider.addScope("email");
 
   //   create user with email password
   const registerUser = (email, password) => {
