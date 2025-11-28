@@ -29,7 +29,7 @@ const MyParcels = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`parcels/${id}`).then((data) => {
+        axiosSecure.delete(`/parcels/${id}`).then((data) => {
           if (data.data.deletedCount) {
             refetch();
             Swal.fire({
@@ -67,10 +67,15 @@ const MyParcels = () => {
                 <td>{p.receiverName}</td>
                 <td>{p.cost}</td>
                 <td>
-                  {p.paymentStatus ? (
+                  {p?.paymentStatus ? (
                     <span className="text-green-400 font-bold">Paid</span>
                   ) : (
-                    <Link className="btn btn-primary text-black">Pay</Link>
+                    <Link
+                      to={`/dashboard/payment/${p._id}`}
+                      className="btn btn-primary text-black"
+                    >
+                      Pay
+                    </Link>
                   )}
                 </td>
 

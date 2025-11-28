@@ -149,6 +149,7 @@ export default function SendAParcel() {
                 <input
                   className="w-full text-sm border border-border rounded px-3 py-2"
                   placeholder="Parcel Weight (KG)"
+                  type="number"
                   {...register("parcelWeight")}
                 />
               </div>

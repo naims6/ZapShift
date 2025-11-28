@@ -10,6 +10,9 @@ import PrivateRoute from "./PrivateRoute";
 import SendAParcel from "../Pages/SendAParcel/SendAParcel";
 import DashBoardLayout from "../Layouts/DashBoardLayout";
 import MyParcels from "../Pages/MyParcels/MyParcels";
+import Payment from "../Pages/Payment/Payment";
+import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
+import PaymentCancel from "../Pages/Payment/PaymentCancel";
 
 export const router = createBrowserRouter([
   // Root Layout
@@ -66,6 +69,18 @@ export const router = createBrowserRouter([
             <MyParcels></MyParcels>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "payment/:id",
+        element: <Payment />,
+      },
+      {
+        path: "payment-success",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "payment-cancel",
+        element: <PaymentCancel />,
       },
     ],
   },
