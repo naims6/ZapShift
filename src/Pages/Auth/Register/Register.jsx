@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import authImage from "../../../assets/auth/authImage.png";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const Register = () => {
   const { registerUser, updateUserProfile } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [registerLoading, setRegisterLoading] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -15,7 +21,8 @@ const Register = () => {
 
   // register an user
   const onSubmit = (data) => {
-    console.log(data);
+    setRegisterLoading(true);
+    setErrorMessage("");
     registerUser(data.email, data.password)
       .then((credential) => {
         const formData = new FormData();
@@ -28,6 +35,19 @@ const Register = () => {
         axios
           .post(imageApiURL, formData)
           .then((res) => {
+            // user info
+            const userInfo = {
+              displayName: data.name,
+              photoURL: res.data.data.url,
+              email: data.email,
+            };
+            // save user info in database
+            axiosSecure.post("/users", userInfo).then((res) => {
+              console.log(res.data);
+              if (res.data.insertedId) {
+                alert("User added");
+              }
+            });
             // update user profile
             const userProfile = {
               displayName: data.name,
@@ -36,8 +56,8 @@ const Register = () => {
 
             updateUserProfile(userProfile)
               .then(() => {
-                console.log("profile updated done");
                 console.log(credential.user);
+                navigate("/");
               })
               .catch((e) => {
                 console.log(e);
@@ -46,9 +66,41 @@ const Register = () => {
           .catch((e) => {
             console.log(e);
           });
+        setRegisterLoading(false);
       })
       .catch((e) => {
-        console.log(e);
+        const errorCode = e.code;
+        let message = "Something went wrong. Please try again.";
+
+        switch (errorCode) {
+          case "auth/email-already-in-use":
+            message = "This email is already registered.";
+            break;
+          case "auth/invalid-email":
+            message = "The email address is invalid.";
+            break;
+          case "auth/weak-password":
+            message = "Password should be at least 6 characters.";
+            break;
+          case "auth/user-not-found":
+            message = "No user found with this email.";
+            break;
+          case "auth/wrong-password":
+            message = "Incorrect password.";
+            break;
+          case "auth/network-request-failed":
+            message = "Network error. Check your internet connection.";
+            break;
+          case "auth/too-many-requests":
+            message = "Too many attempts. Please try again later.";
+            break;
+          default:
+            message = e.message; // fallback
+            break;
+        }
+
+        setErrorMessage(message);
+        setRegisterLoading(false);
       });
   };
 
@@ -59,7 +111,8 @@ const Register = () => {
         <div className="bg-surface p-10 flex flex-col justify-center">
           <h2 className="text-3xl font-bold mb-2">Create An Account</h2>
           <p className="text-text-secondary mb-6">Register with ZepShift</p>
-
+          {/* Error Message */}
+          <h2 className="text-red-500">{errorMessage}</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* image input */}
             <input
@@ -127,8 +180,13 @@ const Register = () => {
             </button>
 
             {/* Login Button */}
-            <button className="w-full bg-lime-400 hover:bg-lime-500 text-white py-2 rounded-lg font-medium transition">
-              Register
+            <button
+              disabled={registerLoading}
+              className={`${
+                registerLoading ? "" : ""
+              } w-full bg-lime-400 hover:bg-lime-500 text-white py-2 rounded-lg font-medium transition`}
+            >
+              {registerLoading ? "Registering..." : "Register"}
             </button>
           </form>
 

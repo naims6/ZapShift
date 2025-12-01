@@ -1,20 +1,34 @@
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const SocialLogin = () => {
   const { signInWithGoogle } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((credential) => {
-        const email = credential.user.email;
-        if (!email) {
-          credential.user.email = credential.user.providerData[0].email;
-        }
-        console.log(credential.user);
-        navigate("/");
+        // user info
+        const userInfo = {
+          displayName: credential.user.displayName,
+          photoURL: credential.user.photoURL,
+          email: credential.user.providerData[0]?.email,
+        };
+        // add user info in database
+        axiosSecure
+          .post("/users", userInfo)
+          .then((res) => {
+            if (res?.data?.insertedId) {
+              alert("User info added in database");
+            }
+            navigate("/");
+          })
+          .catch((e) => {
+            console.log(e);
+          });
       })
       .catch((e) => {
         console.log(e);
