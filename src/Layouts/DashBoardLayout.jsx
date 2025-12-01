@@ -1,4 +1,6 @@
 import React from "react";
+import { FaHistory } from "react-icons/fa";
+import { MdSpatialTracking } from "react-icons/md";
 import { Link, Outlet } from "react-router";
 
 const DashBoardLayout = () => {
@@ -33,7 +35,6 @@ const DashBoardLayout = () => {
         </nav>
         {/* Page content here */}
         <Outlet />
-        <div className="p-4">Page Content</div>
       </div>
 
       <div className="drawer-side is-drawer-close:overflow-visible">
@@ -45,7 +46,7 @@ const DashBoardLayout = () => {
         <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
           {/* Sidebar content here */}
           <ul className="menu w-full grow">
-            {/* List item */}
+            {/* List item home*/}
             <li>
               <Link
                 to="/"
@@ -69,8 +70,32 @@ const DashBoardLayout = () => {
                 <span className="is-drawer-close:hidden">Homepage</span>
               </Link>
             </li>
+            {/* List item payment history*/}
+            <li>
+              <Link
+                to="/dashboard/payment-history"
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Payment History"
+              >
+                {/*  icon */}
+                <FaHistory />
+                <span className="is-drawer-close:hidden">Payment History</span>
+              </Link>
+            </li>
+            {/* List item my parcel*/}
+            <li>
+              <Link
+                to="/dashboard/my-parcels"
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="My Parcel"
+              >
+                {/*  icon */}
+                <MdSpatialTracking />
+                <span className="is-drawer-close:hidden">My Parcel</span>
+              </Link>
+            </li>
 
-            {/* List item */}
+            {/* List item  settings*/}
             <li>
               <button
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"

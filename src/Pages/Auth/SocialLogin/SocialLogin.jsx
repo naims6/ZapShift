@@ -12,8 +12,8 @@ const SocialLogin = () => {
         const email = credential.user.email;
         if (!email) {
           credential.user.email = credential.user.providerData[0].email;
-          console.log(credential.user);
         }
+        console.log(credential.user);
         navigate("/");
       })
       .catch((e) => {

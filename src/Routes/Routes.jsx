@@ -9,10 +9,11 @@ import axios from "axios";
 import PrivateRoute from "./PrivateRoute";
 import SendAParcel from "../Pages/SendAParcel/SendAParcel";
 import DashBoardLayout from "../Layouts/DashBoardLayout";
-import MyParcels from "../Pages/MyParcels/MyParcels";
-import Payment from "../Pages/Payment/Payment";
-import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
-import PaymentCancel from "../Pages/Payment/PaymentCancel";
+import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
+import PaymentCancel from "../Pages/Dashboard/Payment/PaymentCancel";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
   // Root Layout
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
       {
         path: "payment/:id",
         element: <Payment />,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
       },
       {
         path: "payment-success",

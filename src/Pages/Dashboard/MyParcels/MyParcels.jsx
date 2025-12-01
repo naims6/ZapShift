@@ -1,6 +1,6 @@
 import React from "react";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
@@ -12,7 +12,9 @@ const MyParcels = () => {
   const { data: parcels = [], refetch } = useQuery({
     queryKey: ["myParcels", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/parcels?email=${user?.email}`);
+      const res = await axiosSecure.get(
+        `/parcels?email=${user?.providerData[0]?.email}`
+      );
       return res.data;
     },
   });
@@ -43,7 +45,7 @@ const MyParcels = () => {
     });
   };
 
-  console.log(parcels);
+  console.log(user);
   return (
     <div>
       <h1>All of my parcels {parcels.length}</h1>
