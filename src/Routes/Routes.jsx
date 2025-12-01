@@ -14,6 +14,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
 import PaymentCancel from "../Pages/Dashboard/Payment/PaymentCancel";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import Rider from "../Pages/Rider/Rider";
 
 export const router = createBrowserRouter([
   // Root Layout
@@ -28,6 +29,16 @@ export const router = createBrowserRouter([
       {
         path: "/coverage",
         Component: Coverage,
+        loader: () => axios("/data/warehouses.json").then((data) => data.data),
+        hydrateFallbackElement: <h1>Loading...</h1>,
+      },
+      {
+        path: "/be-a-rider",
+        element: (
+          <PrivateRoute>
+            <Rider></Rider>
+          </PrivateRoute>
+        ),
         loader: () => axios("/data/warehouses.json").then((data) => data.data),
         hydrateFallbackElement: <h1>Loading...</h1>,
       },
