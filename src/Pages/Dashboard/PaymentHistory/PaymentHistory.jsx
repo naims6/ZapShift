@@ -19,6 +19,34 @@ const PaymentHistory = () => {
   return (
     <div>
       <h1 className="text-4xl font-bold">Payment History: {payments.length}</h1>
+      <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Transaction ID</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 1 */}
+            {payments.map((p, index) => (
+              <tr key={p._id}>
+                <th>{index + 1}</th>
+                <td>No Name</td>
+                <td>${p.amount}</td>
+                <td>{p.trackingId}</td>
+                <td>
+                  <button className="btn btn-primary text-black">View</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
