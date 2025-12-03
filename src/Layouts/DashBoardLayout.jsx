@@ -1,6 +1,7 @@
 import React from "react";
-import { FaHistory } from "react-icons/fa";
+import { FaHistory, FaUser } from "react-icons/fa";
 import { MdSpatialTracking } from "react-icons/md";
+import { TbBike } from "react-icons/tb";
 import { Link, Outlet } from "react-router";
 
 const DashBoardLayout = () => {
@@ -80,6 +81,30 @@ const DashBoardLayout = () => {
                 {/*  icon */}
                 <FaHistory />
                 <span className="is-drawer-close:hidden">Payment History</span>
+              </Link>
+            </li>
+            {/* List item User management*/}
+            <li>
+              <Link
+                to="/dashboard/user-management"
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="User Management"
+              >
+                {/*  icon */}
+                <FaUser />
+                <span className="is-drawer-close:hidden">User Management</span>
+              </Link>
+            </li>
+            {/* list item approve rider  */}
+            <li>
+              <Link
+                to="/dashboard/approve-rider"
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Approve Rider"
+              >
+                {/*  icon */}
+                <TbBike />
+                <span className="is-drawer-close:hidden">Approve Rider</span>
               </Link>
             </li>
             {/* List item my parcel*/}

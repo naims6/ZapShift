@@ -15,6 +15,8 @@ import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
 import PaymentCancel from "../Pages/Dashboard/Payment/PaymentCancel";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import Rider from "../Pages/Rider/Rider";
+import ApproveRider from "../Pages/Dashboard/ApproveRider/ApproveRider";
+import UserManagement from "../Pages/Dashboard/UserManagement/UserManagement";
 
 export const router = createBrowserRouter([
   // Root Layout
@@ -91,6 +93,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <PaymentHistory />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "user-management",
+        element: (
+          <PrivateRoute>
+            <UserManagement />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "approve-rider",
+        element: (
+          <PrivateRoute>
+            <ApproveRider />
           </PrivateRoute>
         ),
       },
