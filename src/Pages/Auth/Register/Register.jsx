@@ -40,10 +40,10 @@ const Register = () => {
               displayName: data.name,
               photoURL: res.data.data.url,
               email: data.email,
+              uid: credential.user.uid,
             };
             // save user info in database
             axiosSecure.post("/users", userInfo).then((res) => {
-              console.log(res.data);
               if (res.data.insertedId) {
                 alert("User added");
               }

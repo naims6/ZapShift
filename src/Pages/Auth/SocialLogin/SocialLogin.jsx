@@ -16,6 +16,7 @@ const SocialLogin = () => {
           displayName: credential.user.displayName,
           photoURL: credential.user.photoURL,
           email: credential.user.providerData[0]?.email,
+          uid: credential.user.uid,
         };
         // add user info in database
         axiosSecure

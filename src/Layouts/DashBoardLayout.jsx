@@ -3,8 +3,13 @@ import { FaHistory, FaUser } from "react-icons/fa";
 import { MdSpatialTracking } from "react-icons/md";
 import { TbBike } from "react-icons/tb";
 import { Link, Outlet } from "react-router";
+import useRole from "../hooks/useRole";
 
 const DashBoardLayout = () => {
+  const { role, roleLoading } = useRole();
+  if (roleLoading) {
+    return <h1>Role Loading...</h1>;
+  }
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -84,17 +89,22 @@ const DashBoardLayout = () => {
               </Link>
             </li>
             {/* List item User management*/}
-            <li>
-              <Link
-                to="/dashboard/user-management"
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="User Management"
-              >
-                {/*  icon */}
-                <FaUser />
-                <span className="is-drawer-close:hidden">User Management</span>
-              </Link>
-            </li>
+            {role === "admin" && (
+              <li>
+                <Link
+                  to="/dashboard/user-management"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="User Management"
+                >
+                  {/*  icon */}
+                  <FaUser />
+                  <span className="is-drawer-close:hidden">
+                    User Management
+                  </span>
+                </Link>
+              </li>
+            )}
+
             {/* list item approve rider  */}
             <li>
               <Link
