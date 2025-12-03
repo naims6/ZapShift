@@ -18,7 +18,7 @@ const MyParcels = () => {
       return res.data;
     },
   });
-
+  console.log(parcels);
   const handleParcelDelete = (id) => {
     console.log(id);
     Swal.fire({
@@ -58,6 +58,7 @@ const MyParcels = () => {
               <th>Reciever Name</th>
               <th>Cost</th>
               <th>Payment Status</th>
+              <th>Delivery Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -80,6 +81,7 @@ const MyParcels = () => {
                     </Link>
                   )}
                 </td>
+                <td>{p?.deliveryStatus}</td>
 
                 <td>
                   <div className="flex gap-2">
